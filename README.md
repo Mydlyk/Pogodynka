@@ -1,6 +1,6 @@
-Dokumentacja aplikacji „Pogodynka”
+# Dokumentacja aplikacji „Pogodynka”
 
-Opis uruchomienia Aplikacji
+## Opis uruchomienia Aplikacji
 Pogodynka została stworzony w pliku py w języku python z wykorzystaniem freameworka graficznego streamlit. Do uruchomiania aplikacji wymagane jest środowisko python(osobiście korzystałem z wersji pythona 3.12) oraz IDE obsługujące pliki pythonowe np. Visual Studio Code(z którego korzystałem). Do poprawnego działania aplikacji wymagane są następujące biblioteki:
 langchain==0.1.16
 langchain_core==0.1.43
@@ -19,7 +19,7 @@ Aplikację uruchomiamy poprzez wykonanie polecenia  w terminalu:
 
 streamlit run  Pogodynka.py
 Uruchomiona aplikacja powinna znajdować na adresie http://localhost:8501/
-Opis uruchomienia Aplikacji Docker
+## Opis uruchomienia Aplikacji Docker
 Pierwszym krokiem jest zbudowanie obrazu z pliku Dockerfile. 
 Przykładowa komenda budująca obraz:
  ![image](https://github.com/Mydlyk/Pogodynka/assets/65900710/43005707-9fa1-49fc-ab87-27e966b167d4)
@@ -32,10 +32,10 @@ Następnym krokiem jest uruchomienie/stworzenie kontenera z obrazu.
 docker run --name Pogodynka -p 8501:8501 pogodynka
 Uruchomiona aplikacja powinna znajdować na adresie http://localhost:8501/.
 
-Opis działania aplikacji
+## Opis działania aplikacji
 Aplikacja jest chatem ze sztuczną inteligencją ,który wykorzystuje 2 agentów Ai jednego do prowadzenia konwersacji i drugiego do formatowania pytań. Główny agent przeszukuje informacje o pogodzie w polskich miastach i odpowiada na pytanie jedynie związane z pogodą w języku polskim. Chat utrzymuje również kontekst konwersacji i wypowiedzi.
 Aplikacja pobiera z api dane o pogodzie w polskich miastach oraz  za pomocą api DATAFORSEO przeszukuje Internet w celu pozyskania informacji dla Agenta. Agent analizuje pozyskane dane, zadane pytanie, całkowity kontekst oraz stosuje się do zasad ustalonych w promp’cie. Gdy pytanie nie są jednoznacznym zapytaniem dla przeglądarki drugi Agent analizuje je i na podstawie wcześniejszej historii i zwraca nowe pytania dla api DATAFORSEO(Przykład Jaka będzie pogada agent zwróci Jaka będzie jutro pogoada w Lublinie?). Gdy pytanie nie dotyczy pogody aplikacja odpowiada że nie jest to pytanie o pogodę.
-Opis kodu aplikacji
+## Opis kodu aplikacji
 ![image](https://github.com/Mydlyk/Pogodynka/assets/65900710/f8e67523-4c9f-46cb-9795-8957ddf17846)
  
 Wykorzystanie kluczy api oraz zainicjalizowanie modelu sztucznej inteligencji temperatura oraz konkretny model openai które najlepiej odpowiadały to Temperatura=0 oraz model chat gpt 3.5-Turbo.
@@ -73,7 +73,8 @@ Ten kod odpowiada za wyświetlanie chatu.
 ![image](https://github.com/Mydlyk/Pogodynka/assets/65900710/393acdc4-9363-4d03-a00f-80345513a4f5)
  
 Ten kod javascriptowy odpowiada za automatyczne scrolowanie w dół strony po dodaniu nowej wiadomości na wzór działania chatu gpt.
-Działanie aplikacji
+
+##Działanie aplikacji
  ![image](https://github.com/Mydlyk/Pogodynka/assets/65900710/3f8e20a0-ba64-4125-80d2-649d080efd28)
 
 Rysunek 1 Odpowiedz agenta w przypadku dostępu do internetu
